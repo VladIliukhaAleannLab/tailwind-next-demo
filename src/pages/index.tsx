@@ -6,7 +6,7 @@ export default function Home({ grid }) {
   return (
     <Layout>
       <h1 className="font-recoleta">Home</h1>
-      <h2 className="font-inter font-medium">Home</h2>
+      <h2 className="text-body-1">Home</h2>
     </Layout>
   );
 }

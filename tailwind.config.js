@@ -1,3 +1,5 @@
+const responsiveTextPlugin = require("./tailwind/plugins/responsiveTextPlugin");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -7,6 +9,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        s: "480px",
+        m: "960px",
+        l: "1560px",
+      },
       fontFamily: {
         recoleta: ["Recoleta", "sans-serif"],
         inter: ["Inter", "sans-serif"],
@@ -15,7 +22,21 @@ module.exports = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      text: {
+        "body-1": {
+          DEFAULT: {
+            fontSize: "18px",
+            lineHeight: "28px",
+            letterSpacing: "-0.75px",
+          },
+          s: { fontSize: "20px", lineHeight: "32px", letterSpacing: "-0.75px" },
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    responsiveTextPlugin({
+      extraFonts: [{ name: "inter", multiplicator: 1.08 }],
+    }),
+  ],
 };
